@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dyqyh8usmby0p"]
+[gd_scene load_steps=7 format=3 uid="uid://dyqyh8usmby0p"]
 
 [ext_resource type="Texture2D" uid="uid://cerr5kou7tc3y" path="res://textures/tileset_texture.png" id="1_lv6lk"]
+[ext_resource type="Script" path="res://scenes/treasure_chest.gd" id="1_ydirx"]
+[ext_resource type="PackedScene" uid="uid://dcf28b7x3bkgu" path="res://interaction_components/interactable.tscn" id="3_hnoil"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bcgn7"]
 size = Vector2(16, 8)
@@ -9,7 +11,11 @@ size = Vector2(16, 8)
 atlas = ExtResource("1_lv6lk")
 region = Rect2(192, 96, 32, 16)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_gtah1"]
+radius = 17.0294
+
 [node name="TreasureChest" type="StaticBody2D"]
+script = ExtResource("1_ydirx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
@@ -19,3 +25,9 @@ shape = SubResource("RectangleShape2D_bcgn7")
 position = Vector2(0, -5)
 texture = SubResource("AtlasTexture_wfkbx")
 hframes = 2
+
+[node name="Interactable" parent="." instance=ExtResource("3_hnoil")]
+interact_name = "Open Chest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+shape = SubResource("CircleShape2D_gtah1")
