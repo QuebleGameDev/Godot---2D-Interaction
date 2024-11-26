@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyqyh8usmby0p"]
+
+[ext_resource type="Texture2D" uid="uid://cerr5kou7tc3y" path="res://textures/tileset_texture.png" id="1_lv6lk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bcgn7"]
+size = Vector2(16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfkbx"]
+atlas = ExtResource("1_lv6lk")
+region = Rect2(192, 96, 32, 16)
+
+[node name="TreasureChest" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_bcgn7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -5)
+texture = SubResource("AtlasTexture_wfkbx")
+hframes = 2
